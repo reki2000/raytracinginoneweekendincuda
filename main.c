@@ -74,7 +74,8 @@ int main(int argc, char **argv)
         if (event.type == Expose)
         {
             ximage = create_ximage(display, visual, image_width, image_height, camera_x, camera_y, camera_z);
-            r = XPutImage(display, window, gc, ximage, 0, 0, 0, 0, 1200, 800);
+            r = XPutImage(display, window, gc, ximage, 0, 0, 0, 0, image_width, image_height);
+            XDestroyImage(ximage);
             continue;
         }
         else if (event.type == KeyPress)
@@ -115,7 +116,8 @@ int main(int argc, char **argv)
                 continue;
             }
             ximage = create_ximage(display, visual, image_width, image_height, camera_x, camera_y, camera_z);
-            r = XPutImage(display, window, gc, ximage, 0, 0, 0, 0, 1200, 800);
+            r = XPutImage(display, window, gc, ximage, 0, 0, 0, 0, image_width, image_height);
+            XDestroyImage(ximage);
         }
     }
 
