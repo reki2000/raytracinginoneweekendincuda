@@ -1,4 +1,4 @@
 cudart
-cudart.o
+*.o
 out.jpg
 out.ppm
